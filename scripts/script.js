@@ -1,10 +1,3 @@
-const HIDDEN = 'hidden'; 
-const dicesCount = 2;
-const IMG_BASE_PATH = './img/';
-const IMG_FILE_TYPE = '.svg';
-const CLICK_EVENT = 'click';
-const map = new Map();
-
 function hideElement(element){
     element.classList.add(HIDDEN);
 }
@@ -51,10 +44,7 @@ function createCol(id){
     }
 }
 
-const btn = document.getElementById('roll');
-
-
-btn.addEventListener(CLICK_EVENT,()=>{
+ROLL_BTN.addEventListener(CLICK_EVENT,()=>{
     map.forEach(e=> hideElement(e));
     const arr = [];
     for(let i = 1; i <= dicesCount; i++){
@@ -63,8 +53,8 @@ btn.addEventListener(CLICK_EVENT,()=>{
         const dice = map.get(`${i}-${random}`);
         showElement(dice);
     }
-    document.getElementById('a').textContent = arr.join(" + ") + " = " +  arr.reduce((a,b)=>a+b)    
-    disableElementForSeconds(btn,5000)
+    RESULT_ELEMENT.textContent = arr.join(" + ") + " = " +  arr.reduce((a,b)=>a+b)    
+    disableElementForSeconds(ROLL_BTN,10000)
 });
 
 for(let i= 1; i <= dicesCount; i++){
