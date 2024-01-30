@@ -7,10 +7,29 @@
     <title>Katan</title>
 </head>
 <body>
+    <select name="count" id="count">
+      <option value="1">1 dice</option>
+      <option value="2">2 dices</option>
+      <option value="3">3 dices</option>
+      <option value="4">4 dices</option>
+      <option value="5">5 dices</option>
+      <option value="6">6 dices</option>
+    </select>
+    <!-- <select name="timeout" id="timeout">
+        <option value="0">No timeout</option>
+        <option value="10">10 seconds timeout</option>
+        <option value="20">20 seconds timeout</option>
+        <option value="30">30 seconds timeout</option>
+        <option value="40">40 seconds timeout</option>
+        <option value="50">50 seconds timeout</option>
+        <option value="60">60 seconds timeout</option>
+      </select> -->
     <section id="container" class="container"></section>
     <div id="result" class="result"></div>
     <button id="roll-btn" class="roll-btn">Roll</button>
 </body>
 <script src="./scripts/constants.js"></script>
+<script src="./scripts/util.js"></script>
+<script src="./scripts/timeout.js"></script>
 <script src="./scripts/script.js"></script>
 </html>

@@ -1,5 +1,8 @@
+const BODY = document.querySelector('body');
+
 const HIDDEN = 'hidden'; 
-const dicesCount = 2;
+const CHANGE_EVENT = 'change'
+let dicesCount = 2;
 const IMG_BASE_PATH = './img/';
 const IMG_FILE_TYPE = '.svg';
 const CLICK_EVENT = 'click';

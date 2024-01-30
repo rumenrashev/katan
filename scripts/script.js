@@ -16,21 +16,6 @@ function createImage(num){
     return img;
 }
 
-function disableElement(element){
-    element.disabled = true;
-}
-
-function enableElement(element){
-    element.disabled = false;
-}
-
-function disableElementForSeconds(element,seconds){
-    disableElement(element);
-    setTimeout(function(){
-        element.disabled = false;
-    },seconds)  
-}
-
 
 function createCol(id){
     for(let i = 1; i <= 6; i++){
@@ -53,13 +38,27 @@ ROLL_BTN.addEventListener(CLICK_EVENT,()=>{
         const dice = map.get(`${i}-${random}`);
         showElement(dice);
     }
-    RESULT_ELEMENT.textContent = arr.join(" + ") + " = " +  arr.reduce((a,b)=>a+b)    
-    disableElementForSeconds(ROLL_BTN,10000)
+    // RESULT_ELEMENT.textContent = arr.join(" + ") + " = " +  arr.reduce((a,b)=>a+b)    
+    RESULT_ELEMENT.textContent = arr.reduce((a,b)=>a+b)    
+    disableElementForSeconds(ROLL_BTN,timeout)
 });
 
-for(let i= 1; i <= dicesCount; i++){
-    const dice = createCol(i);
+function createDices(){
+    document.getElementById('container').innerHTML = '';
+    document.getElementById('result').innerHTML = '';
+    for(let i= 1; i <= dicesCount; i++){
+        const dice = createCol(i);
+    }
+    map.forEach(e=>hideElement(e));
 }
 
-map.forEach(e=>hideElement(e));
+createDices();
 
+document.getElementById('count').addEventListener('change',(e)=>{
+    dicesCount = Number(e.target.value);
+    createDices();
+});
+
+
+
+document.getElementById('count').value = dicesCount;
